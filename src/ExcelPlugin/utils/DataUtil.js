@@ -103,7 +103,7 @@ function getCell(v, cellRef, ws) {
         return;
     }
 
-    if ((!v instanceof Date) && typeof v === 'object') {
+    if (!(v instanceof Date) && (typeof v === 'object')) {
         cell.s = v.style;
         cell.v = v.value;
     }
