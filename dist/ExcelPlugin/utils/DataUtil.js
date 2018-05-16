@@ -120,6 +120,7 @@ function getCell(v, cellRef, ws) {
     if (!isDate && (typeof v === 'undefined' ? 'undefined' : _typeof(v)) === 'object') {
         cell.s = v.style;
         cell.v = v.value;
+        v = v.value;
     }
 
     if (typeof v === 'number') {
