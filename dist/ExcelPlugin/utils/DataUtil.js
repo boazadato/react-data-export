@@ -116,7 +116,8 @@ function getCell(v, cellRef, ws) {
         return;
     }
 
-    if (!(v instanceof Date) && (typeof v === 'undefined' ? 'undefined' : _typeof(v)) === 'object') {
+    var isDate = v instanceof Date;
+    if (!isDate && (typeof v === 'undefined' ? 'undefined' : _typeof(v)) === 'object') {
         cell.s = v.style;
         cell.v = v.value;
     }
@@ -125,7 +126,7 @@ function getCell(v, cellRef, ws) {
         cell.t = 'n';
     } else if (typeof v === 'boolean') {
         cell.t = 'b';
-    } else if (v instanceof Date) {
+    } else if (isDate) {
         cell.t = 'n';
         cell.z = _xlsx2.default.SSF._table[14];
         cell.v = dateToNumber(cell.v);
